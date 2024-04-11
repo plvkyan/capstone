@@ -6,6 +6,8 @@ import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 import LoginForm from './Login';
 import { Settings } from './Settings';
+import AdminReservations from './admin/reservations/admin-reservations';
+import AdminFacilities from './admin/reservations/admin-facilities';
 
 function App() {
 
@@ -23,13 +25,16 @@ function App() {
           <Navbar />
 
           <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/payments" element={<PaymentsPage />} />
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/settings" element={<Settings />} />
+            
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/payments" element={<PaymentsPage />} />
+            <Route path="/reservations" element={<AdminReservations />} />
+            <Route path="/reservations/facilities" element={<AdminFacilities />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/settings" element={<Settings />} />
 
-        </Routes>
+          </Routes>
 
         </div>
 

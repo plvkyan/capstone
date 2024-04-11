@@ -187,7 +187,12 @@ function CustomHeader() {
         <div className="flex items-center">
 
             <h1 className="text-lg font-semibold md:text-1xl">
-                {pathname === "/dashboard" ? "Admin Dashboard" : pathname === "/payments" ? "Payments" : pathname === "/settings" ? "Settings" : "Dashboard"}
+                {pathname === "/dashboard" ? "Admin Dashboard"
+                : pathname === "/payments" ? "Payments" 
+                : pathname === "/settings" ? "Settings" 
+                : pathname === "/reservations" ? "Reservations" 
+                : pathname === "/reservations/facilities" ? "Reservations" 
+                : "Dashboard"}
             </h1>
 
         </div>

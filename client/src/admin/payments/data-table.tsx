@@ -2,6 +2,19 @@
 
 import * as React from "react";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+
+import { Label } from "@/components/ui/label"
+  
+
 import { CirclePlus } from "lucide-react";
 
 import {
@@ -118,14 +131,7 @@ export function DataTable<TData, TValue>({
 
 
 
-                <Button
-                    className="p-3 max-[640px]:w-full accent"
-                >
-
-                    <CirclePlus className="h-6 w-6 pr-2" />
-                    Create Payment
-
-                </Button>
+             
 
 
             </div>
