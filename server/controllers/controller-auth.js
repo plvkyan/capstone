@@ -36,15 +36,18 @@ export const login = async (req, res, next) => {
 
     try {
 
-        const user = await User.findOne({blockLot:req.body.blockLot});
+        const user = await User.findOne({ blockLot: req.body.blockLot });
         if (!user) return next(createError(404, "Block and Lot not found!"));
 
         // Checks Password
-        const isPasswordCorrect = await bcrypt.compare(req.body.password, user.password);
+        const isPasswordCorrect = await bcrypt.compare(
+            req.body.password,
+            user.password
+        );
         if (!isPasswordCorrect) return next(createError(400, "Wrong password or username."));
 
         const token = jwt.sign(
-            { id:user._id, isdmin: user.isAdmin},
+            { id:user._id, isAdmin: user.isAdmin},
             process.env.JWT
         );
 

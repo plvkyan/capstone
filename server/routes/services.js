@@ -7,18 +7,19 @@ import {
     getServices,
     updateService,
 } from "../controllers/controller-service.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
 
 // CREATE SERVICE
-router.post("/", createService);
+router.post("/", verifyAdmin, createService);
 
 // UPDATE SERVICE
-router.put("/:id", updateService);
+router.put("/:id", verifyAdmin, updateService);
 
 // DELETE SERVICE
-router.delete("/:id", deleteService);
+router.delete("/:id", verifyAdmin, deleteService);
 
 // GET SERVICE
 router.get("/:id", getService);
