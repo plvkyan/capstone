@@ -12,6 +12,7 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 
+
 // CREATE SERVICE
 router.post("/", verifyAdmin, createService);
 
@@ -27,5 +28,6 @@ router.get("/:id", getService);
 // GET ALL SERVICES
 router.get("/", getServices);
  
+
 
 export default router;

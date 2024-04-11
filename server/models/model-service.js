@@ -7,14 +7,13 @@ const ServicesSchema = new mongoose.Schema({
         required: true
     },
     desc: {
-        type: String, 
+        type: String,  
         required: true
     },
-    type: {
-        type: String,
-        required: true
+    amenities: {
+        type: [String],
     }
-
+  
 })
 
 export default mongoose.model("Service", ServicesSchema)
