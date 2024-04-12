@@ -1,14 +1,18 @@
+// @ts-nocheck
+
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { Menu, Home, DollarSign, CalendarFold, Megaphone, Users, CircleUser, Settings, LayoutDashboard, LogOut } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./components/ui/sheet";
 import { Link, useLocation, useMatch, useResolvedPath } from "react-router-dom";
 
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
 
 
 export default function Navbar() {
 
-
+    const { user } = useContext(AuthContext);
 
     return (
 
@@ -126,7 +130,7 @@ export default function Navbar() {
 
                     <DropdownMenuContent align="end">
 
-                        <DropdownMenuLabel>Blk. 24 Lt. 1</DropdownMenuLabel>
+                        <DropdownMenuLabel> { user ? user.username : "Blk 24 Lt 1" } </DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
                             <Link to="/home" className="flex items-center">

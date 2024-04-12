@@ -27,6 +27,10 @@ router.get("/:id", getService);
 
 // GET ALL SERVICES
 router.get("/", getServices);
+
+
+
+
  
 
 

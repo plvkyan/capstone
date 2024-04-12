@@ -13,7 +13,7 @@ export const register = async (req, res, next) => {
 
         const newUser = new User({
 
-            blockLot: req.body.blockLot,
+            ...req.body,
             password: hash,
 
         });
@@ -37,14 +37,14 @@ export const login = async (req, res, next) => {
     try {
 
         const user = await User.findOne({ blockLot: req.body.blockLot });
-        if (!user) return next(createError(404, "Block and Lot not found!"));
+        if (!user) return next(createError(404, "Account not found!"));
 
         // Checks Password
         const isPasswordCorrect = await bcrypt.compare(
             req.body.password,
             user.password
         );
-        if (!isPasswordCorrect) return next(createError(400, "Wrong password or username."));
+        if (!isPasswordCorrect) return next(createError(400, "Wrong password or block and lot."));
 
         const token = jwt.sign(
             { id:user._id, isAdmin: user.isAdmin},
@@ -55,7 +55,7 @@ export const login = async (req, res, next) => {
         res.cookie("access_token", token, {
             httpOnly: true,
         }).status(200)
-        .json({...otherDetails}); 
+        .json({ details: { ...otherDetails }, isAdmin}); 
 
     } catch (err) {
         

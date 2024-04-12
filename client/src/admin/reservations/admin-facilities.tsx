@@ -19,6 +19,12 @@ import {
 import { CardContent, Card } from "@/components/ui/card";
 import { Link, Route, Routes } from "react-router-dom";
 import AdminReservations from "./admin-reservations";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { CirclePlus } from "lucide-react";
 
 
 
@@ -52,23 +58,84 @@ export default function AdminFacilities() {
                         </Breadcrumb>
 
 
-                        <Routes>
+                        <div className="flex items-center justify-between">
 
-                            <Route path="/reservations" element={<AdminReservations />} />
-                            <Route path="/reservations/facilities" element={<AdminFacilities />} />
+                            <div>
 
-                        </Routes>
+                                <div className="w-full max-w-6xl gap-2 mb-1">
+                                    <h1 className="text-2xl font-semibold"> Facilities </h1>
+                                </div>
 
+                                <p className="text-muted-foreground">
+                                    Here are your list of facilities that members are able to reserve.
+                                </p>
 
-                        <div>
-
-                            <div className="w-full max-w-6xl gap-2 mb-1">
-                                <h1 className="text-2xl font-semibold"> Facilities </h1>
                             </div>
 
-                            <p className="text-muted-foreground">
-                                Here are your list of facilities that members are able to reserve.
-                            </p>
+                            <Dialog>
+
+                                <DialogTrigger asChild>
+                                    <Button
+                                        className="p-3 max-[640px]:w-full accent"
+                                    >
+                                        <CirclePlus className="h-6 w-6 pr-2" />
+                                        Create Facility
+                                    </Button>
+                                </DialogTrigger>
+
+                                <DialogContent className="sm:max-w-[425px]">
+
+                                    <DialogHeader>
+                                        <DialogTitle> Create a new payment </DialogTitle>
+                                        <DialogDescription>
+                                            Create new payment for the members.
+                                        </DialogDescription>
+                                    </DialogHeader>
+
+                                    <div className="grid gap-4 py-4">
+
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="name" className="text-right">
+                                                Name
+                                            </Label>
+                                            <Input
+                                                id="name"
+                                                defaultValue="Monthly Due for April 2024"
+                                                className="col-span-3"
+                                            />
+                                        </div>
+
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="description" className="text-right">
+                                                Description
+                                            </Label>
+                                            <Textarea
+                                                id="description"
+                                                defaultValue="Our monthly dues."
+                                                className="col-span-3 max-h-48"
+                                                placeholder="Type your message here." />
+                                        </div>
+
+                                        <div className="grid grid-cols-4 items-center gap-4">
+                                            <Label htmlFor="amount" className="text-right">
+                                                Amount
+                                            </Label>
+                                            <Input
+                                                id="amount"
+                                                defaultValue="₱1,000.00"
+                                                className="col-span-3"
+                                            />
+                                        </div>
+
+                                    </div>
+
+                                    <DialogFooter>
+                                        <Button type="submit"> Create Payment </Button>
+                                    </DialogFooter>
+
+                                </DialogContent>
+
+                            </Dialog>
 
                         </div>
 
@@ -160,7 +227,7 @@ export default function AdminFacilities() {
                                         <div className="space-y-1">
                                             <h2 className="text-lg font-semibold"> Claremont Basketball Court </h2>
                                             <p className="text-muted-foreground">
-                                                Technically, during the day, the students of Claremont may or may not use this court. At night, however, it is the place for various events. 
+                                                Technically, during the day, the students of Claremont may or may not use this court. At night, however, it is the place for various events.
                                             </p>
                                         </div>
 

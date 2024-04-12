@@ -163,7 +163,7 @@ export function Dashboard() {
               <CardHeader className="flex flex-row items-center">
 
                 <div className="grid gap-2">
-                  <CardTitle>Transactions</CardTitle>
+                  <CardTitle> Transactions </CardTitle>
                   <CardDescription>
                     Recent transactions from your store.
                   </CardDescription>
